@@ -1,9 +1,16 @@
 import { Button, FormControl, TextField } from '@mui/material'
 import { Container } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 import Todo from './Todo'
 
 const Home = () => {
+    const[todo] = useState([
+        {
+            id: 1,
+            title: 'Play',
+            isCompleted: false,
+        }
+    ])
     return (
         <Container maxWidth='sm'>
             <form >
@@ -12,7 +19,7 @@ const Home = () => {
                     <TextField id="outlined-basic" label="Text here" variant="outlined" />
                     <Button variant="contained" type='submit' style={{marginTop: 10}}>Add</Button>
                 </FormControl>
-                <Todo text='Learn React'/>
+                <Todo todo={todo}/>
             </form>
         </Container>
     )
